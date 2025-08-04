@@ -12,7 +12,7 @@ int main() {
     int pontosturisticos1;
     double densidadepopulacional1;
     double pibpercapta1;
-    float superpoder1;
+    double superpoder1;
 
     // Variáveis da carta 02
     char estado2;
@@ -24,7 +24,7 @@ int main() {
     int pontosturisticos2;
     double densidadepopulacional2;
     double pibpercapta2;
-    float superpoder2;
+    double superpoder2;
 
     // Entrada da carta 01
     printf("Cadastro da carta 1:\n");
@@ -150,9 +150,9 @@ int main() {
         printf("Empate!");
     }
 
-    if (densidadepopulacional1 > densidadepopulacional2){
+    if (densidadepopulacional1 < densidadepopulacional2){
         printf("Carta 1 venceu!\n");
-    } else if (densidadepopulacional2 > densidadepopulacional1){
+    } else if (densidadepopulacional2 < densidadepopulacional1){
         printf("Carta 2 venceu!\n");
     } else {
         printf("Empate!");
