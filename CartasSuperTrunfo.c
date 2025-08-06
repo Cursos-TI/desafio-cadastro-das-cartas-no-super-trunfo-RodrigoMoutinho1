@@ -1,7 +1,14 @@
 #include <stdio.h>
 #include <string.h>
 
+void limparBuffer(){
+    int ch;
+     while ((ch = getchar()) != '\n' && ch != EOF);
+}
+
+
 int main() {
+
     // Variáveis da carta 01
     char estado1;
     char codigo1[5];
@@ -32,34 +39,42 @@ int main() {
     printf("Cadastro da carta 1:\n");
     printf("Informe a letra do estado (A-H): ");
     scanf(" %c", &estado1);
+    limparBuffer();
+    
 
     printf("Informe o código da carta (ex: A01): ");
     scanf("%s", codigo1);
+    limparBuffer();
 
     printf("Informe o nome da cidade: ");
-    getchar(); // Limpa o '\n' do buffer
     fgets(nomecidade1, sizeof(nomecidade1), stdin);
     nomecidade1[strcspn(nomecidade1, "\n")] = '\0';
 
     printf("Informe a populacao: ");
     scanf("%lu", &populacao1);
+    limparBuffer();
 
     printf("Informe a area (em km²): ");
     scanf("%f", &area1);
+    limparBuffer();
 
     printf("Informe o PIB em bilhões de reais (ex: 600.0 para 600 bilhões): ");
     scanf("%f", &pib1);
+    limparBuffer();
 
     printf("Informe a quantidade de pontos turisticos: ");
     scanf("%d", &pontosturisticos1);
+    limparBuffer();
 
     // Entrada da carta 02
     printf("\nCadastro da carta 2:\n");
     printf("Informe a letra do estado (A-H): ");
     scanf(" %c", &estado2);
+    limparBuffer();
 
     printf("Informe o código da carta (ex: A01): ");
     scanf(" %s", codigo2);
+    limparBuffer();
 
     printf("Informe o nome da cidade: ");
     getchar();
@@ -68,15 +83,19 @@ int main() {
 
     printf("Informe a populacao: ");
     scanf("%lu", &populacao2);
+    limparBuffer();
 
     printf("Informe a area (em km²): ");
     scanf("%f", &area2);
+    limparBuffer();
 
     printf("Informe o PIB em bilhões de reais (ex: 600.0 para 600 bilhões): ");
     scanf("%f", &pib2);
+    limparBuffer();
 
     printf("Informe a quantidade de pontos turisticos: ");
     scanf("%d", &pontosturisticos2);
+    limparBuffer();
 
     // Cálculo densidade e PIB per capita da carta 1 (com proteção)
     densidadepopulacional1 = (area1 > 0) ? (double)populacao1 / area1 : 0.0;
@@ -144,7 +163,7 @@ int main() {
     if 
     (populacao1 > populacao2) printf("Vencedor: %s\n", nomecidade1);
     else if 
-    (populacao2 > populacao2) printf("Vencedor: %s\n", nomecidade2);
+    (populacao2 > populacao1) printf("Vencedor: %s\n", nomecidade2);
     else 
     printf("Empate!\n");
     break;
@@ -190,7 +209,7 @@ int main() {
     printf("%s: %.2f\n", nomecidade1, densidadepopulacional1);
     printf("%s: %.2f\n", nomecidade2, densidadepopulacional2);
     if 
-    (densidadepopulacional1 < pontosturisticos2) printf("Vencedor: %s\n", nomecidade1);
+    (densidadepopulacional1 < densidadepopulacional2) printf("Vencedor: %s\n", nomecidade1);
     else if
     (densidadepopulacional2 < densidadepopulacional1) printf("Vencedor: %s\n", nomecidade2);
     else
@@ -210,7 +229,7 @@ int main() {
     break;
 
     case 7:
-    printf("Pontos turisticos:\n");
+    printf("Super poder:\n");
     printf("%s: %.2f\n", nomecidade1, superpoder1);
     printf("%s: %.2f\n", nomecidade2, superpoder2);
     if 
